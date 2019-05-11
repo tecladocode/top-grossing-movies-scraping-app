@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link
+            rel="stylesheet"
+            href="{{ url_for('static', filename='style.css') }}"
+        />
+        <title>Top grossing movies</title>
+    </head>
+    <body class="preload">
+        <div class="container">
+            <h1>Top grossing movies</h1>
+            <div class="movies-list">
+                {% for movie in movies %}
+                <div class="movie">
+                    <div class="stats">
+                        <div class="gross">{{ movie.grossing }}</div>
+                        <div class="year">From {{ movie.year }}</div>
+                    </div>
+                    <div class="name">
+                        {{ movie.name }}
+                    </div>
+                </div>
+                {% endfor %}
+                <a
+                    class="more"
+                    href="https://www.boxofficemojo.com/alltime/world/"
+                >
+                    There's more...
+                </a>
+            </div>
+        </div>
+        <script>
+            window.onload = function() {
+                document
+                    .getElementsByClassName("preload")[0]
+                    .classList.remove("preload");
+            };
+        </script>
+    </body>
+</html>

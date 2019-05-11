@@ -1,0 +1,7 @@
+*.sketch
+__pycache__/
+.vscode
+.idea
+*.pyc
+*.swp
+.env
